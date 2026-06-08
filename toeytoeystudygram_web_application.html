@@ -1,0 +1,820 @@
+<!DOCTYPE html>
+<html lang="th" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>toeytoeystudygram | คอร์สเรียนพรีเมียมโดยครูพี่เตย</title>
+    <!-- Tailwind CSS CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- Google Fonts: Kanit & Inter -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Kanit:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    <!-- FontAwesome Icons for Beautiful Brand Logos -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        brand: {
+                            50: '#f0f4fe',
+                            100: '#e1e9fc',
+                            200: '#c8d9fa',
+                            300: '#a1bffa',
+                            400: '#709cf7',
+                            500: '#4875f2',
+                            600: '#2f54e6',
+                            700: '#2540d0',
+                            800: '#2235aa',
+                            900: '#1e2d86',
+                            950: '#141c52',
+                        }
+                    },
+                    fontFamily: {
+                        sans: ['Kanit', 'Inter', 'sans-serif'],
+                    }
+                }
+            }
+        }
+    </script>
+    <style>
+        .blue-gradient-overlay {
+            background: linear-gradient(135deg, rgba(20, 28, 82, 0.9) 0%, rgba(30, 45, 134, 0.95) 100%);
+        }
+        .hero-bg {
+            /* Background image showing graduating students in blue gowns */
+            background-image: url('https://images.unsplash.com/photo-1523050854058-8df90110c9f1?q=80&w=1600&auto=format&fit=crop');
+            background-size: cover;
+            background-position: center;
+        }
+    </style>
+</head>
+<body class="bg-slate-50 text-slate-800 font-sans min-h-screen flex flex-col">
+
+    <!-- Navigation Bar -->
+    <header class="sticky top-0 z-50 bg-white/95 backdrop-blur-md border-b-2 border-brand-800 transition-all duration-300 shadow-sm">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex items-center justify-between h-20">
+                <!-- Logo -->
+                <a href="#" class="flex items-center gap-2 group">
+                    <div class="bg-brand-900 text-white p-2.5 rounded-xl group-hover:bg-brand-700 transition-colors shadow-md">
+                        <i class="fa-solid fa-graduation-cap text-xl"></i>
+                    </div>
+                    <span class="text-2xl font-extrabold text-brand-900 tracking-wider">toeytoeystudygram</span>
+                </a>
+
+                <!-- Desktop Menu -->
+                <nav class="hidden md:flex items-center gap-8">
+                    <a href="#" class="text-brand-900 hover:text-brand-600 font-medium transition-colors">หน้าแรก</a>
+                    <a href="#biography" class="text-slate-600 hover:text-brand-900 font-medium transition-colors">ประวัติครูพี่เตย</a>
+                    <a href="#courses" class="text-slate-600 hover:text-brand-900 font-medium transition-colors">คอร์สแนะนำ</a>
+                    <a href="#testimonials" class="text-slate-600 hover:text-brand-900 font-medium transition-colors">ความสำเร็จ</a>
+                    <a href="#contact" class="text-slate-600 hover:text-brand-900 font-medium transition-colors">ติดต่อเรา</a>
+                </nav>
+
+                <!-- Action Button -->
+                <div class="hidden md:block">
+                    <a href="#courses" class="bg-brand-900 text-white hover:bg-white hover:text-brand-900 border-2 border-brand-900 px-6 py-2.5 rounded-full font-semibold transition-all shadow-md hover:shadow-lg">
+                        สมัครเรียนคอร์สเรียนเลย
+                    </a>
+                </div>
+
+                <!-- Mobile Menu Button -->
+                <button id="mobile-menu-btn" class="md:hidden text-brand-900 p-2 focus:outline-none">
+                    <i class="fa-solid fa-bars text-2xl" id="menu-icon"></i>
+                </button>
+            </div>
+        </div>
+
+        <!-- Mobile Drawer Menu -->
+        <div id="mobile-menu" class="hidden md:hidden bg-white border-t border-brand-100 px-4 pt-2 pb-6 space-y-3 transition-all">
+            <a href="#" class="block px-4 py-2.5 rounded-lg text-brand-900 font-semibold bg-brand-50">หน้าแรก</a>
+            <a href="#biography" class="block px-4 py-2.5 rounded-lg text-slate-700 hover:bg-slate-50 font-medium">ประวัติครูพี่เตย</a>
+            <a href="#courses" class="block px-4 py-2.5 rounded-lg text-slate-700 hover:bg-slate-50 font-medium">คอร์สแนะนำ</a>
+            <a href="#testimonials" class="block px-4 py-2.5 rounded-lg text-slate-700 hover:bg-slate-50 font-medium">ความสำเร็จ</a>
+            <a href="#contact" class="block px-4 py-2.5 rounded-lg text-slate-700 hover:bg-slate-50 font-medium">ติดต่อเรา</a>
+            <a href="#courses" class="block w-full text-center bg-brand-900 text-white py-3 rounded-xl font-bold">
+                สมัครเรียนเลย
+            </a>
+        </div>
+    </header>
+
+    <main class="flex-grow">
+        <!-- Hero Section with Graduation Background -->
+        <section class="relative hero-bg min-h-[85vh] flex items-center justify-center text-white py-20 px-4">
+            <!-- Dark Blue Premium Overlay -->
+            <div class="absolute inset-0 blue-gradient-overlay z-10"></div>
+            
+            <div class="relative z-20 text-center max-w-4xl mx-auto space-y-8 px-4">
+                <!-- Academic Batch Badge -->
+                <div class="inline-flex items-center gap-2 bg-brand-100/15 border border-white/20 px-4 py-2 rounded-full backdrop-blur-md">
+                    <span class="inline-block w-2.5 h-2.5 rounded-full bg-cyan-400 animate-ping"></span>
+                    <span class="text-sm sm:text-base font-medium tracking-wide">สถาบันกวดวิชาอันดับ 1 ในใจน้องๆ DEK70+</span>
+                </div>
+
+                <!-- Main Branding -->
+                <h1 class="text-4xl sm:text-6xl md:text-7xl font-extrabold tracking-tight drop-shadow-md leading-tight">
+                    <span class="block text-white">toeytoeystudygram</span>
+                    <span class="block mt-2 text-cyan-300 text-3xl sm:text-5xl md:text-6xl">เคล็ดลับติดมหาลัยในฝัน</span>
+                </h1>
+
+                <!-- Description -->
+                <p class="text-lg sm:text-xl md:text-2xl text-slate-100 max-w-2xl mx-auto leading-relaxed font-light">
+                    ติวเข้มแบบเห็นผลจริงกับ "ครูพี่เตย" ประสบการณ์ 50 ปี พาน้องๆ สวมเสื้อครุยสีน้ำเงินแห่งความสำเร็จและเดินเข้าสู่รั้วมหาวิทยาลัยในฝันด้วยความมั่นใจ
+                </p>
+
+                <!-- Interactive Call To Action Buttons -->
+                <div class="flex flex-col sm:flex-row gap-4 justify-center items-center pt-4">
+                    <a href="#courses" class="w-full sm:w-auto px-8 py-4 bg-white text-brand-900 hover:bg-brand-50 font-bold text-lg rounded-full transition-all duration-300 shadow-xl hover:scale-105 active:scale-95 text-center flex items-center justify-center gap-2 group">
+                        <span>ดูคอร์สเรียนทั้งหมด</span>
+                        <i class="fa-solid fa-arrow-down transition-transform group-hover:translate-y-1"></i>
+                    </a>
+                    <a href="#biography" class="w-full sm:w-auto px-8 py-4 bg-transparent border-2 border-white hover:bg-white/10 text-white font-bold text-lg rounded-full transition-all duration-300 text-center">
+                        รู้จักครูพี่เตยมากขึ้น
+                    </a>
+                </div>
+
+                <!-- Trust Statistics Row -->
+                <div class="grid grid-cols-2 md:grid-cols-3 gap-6 pt-12 max-w-3xl mx-auto border-t border-white/10">
+                    <div class="text-center">
+                        <p class="text-3xl sm:text-4xl font-black text-cyan-300">50+ ปี</p>
+                        <p class="text-xs sm:text-sm text-slate-200 mt-1 uppercase tracking-wider">ประสบการณ์การสอน</p>
+                    </div>
+                    <div class="text-center">
+                        <p class="text-3xl sm:text-4xl font-black text-cyan-300">100k+</p>
+                        <p class="text-xs sm:text-sm text-slate-200 mt-1 uppercase tracking-wider">ลูกศิษย์ที่ประสบความสำเร็จ</p>
+                    </div>
+                    <div class="text-center col-span-2 md:col-span-1">
+                        <p class="text-3xl sm:text-4xl font-black text-cyan-300">99.2%</p>
+                        <p class="text-xs sm:text-sm text-slate-200 mt-1 uppercase tracking-wider">อัตราการสอบติดมหาวิทยาลัย</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Biography & Portfolio Section -->
+        <section id="biography" class="py-24 bg-white scroll-mt-20">
+            <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+                <!-- Section Header -->
+                <div class="text-center max-w-3xl mx-auto mb-16">
+                    <h2 class="text-base text-brand-700 font-bold tracking-widest uppercase mb-2">Teacher Biography</h2>
+                    <p class="text-3xl sm:text-4xl font-extrabold text-brand-900">
+                        ประวัติและผลงานอันทรงเกียรติ "ครูพี่เตย"
+                    </p>
+                    <div class="w-24 h-1.5 bg-brand-900 mx-auto mt-4 rounded-full"></div>
+                </div>
+
+                <!-- Main Grid Layout -->
+                <div class="grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
+                    
+                    <!-- Left Column: Biography Frame & Photo (White Background with Deep Blue Border) -->
+                    <div class="lg:col-span-5 flex flex-col items-center">
+                        <div class="relative p-4 bg-white border-4 border-brand-900 rounded-3xl shadow-xl hover:shadow-2xl transition-shadow max-w-sm w-full">
+                            <div class="relative overflow-hidden rounded-2xl aspect-[3/4] bg-slate-100 border border-slate-200">
+                                <!-- Teacher Image: refer to verified IMG_0070.webp -->
+                                <img src="IMG_0070.webp" 
+                                     alt="ครูพี่เตย" 
+                                     class="w-full h-full object-cover object-center hover:scale-105 transition-transform duration-500">
+                                
+                                <!-- Floating Badge -->
+                                <div class="absolute bottom-4 left-4 right-4 bg-brand-900/95 backdrop-blur-md text-white py-3 px-4 rounded-xl text-center border border-white/10">
+                                    <p class="font-bold text-lg">ครูพี่เตย (P'Toey)</p>
+                                    <p class="text-xs text-cyan-300 font-medium">สตรีสตรองแห่งวงการติวเตอร์</p>
+                                </div>
+                            </div>
+                            
+                            <!-- Small Accent -->
+                            <div class="absolute -top-4 -right-4 bg-brand-900 text-white w-14 h-14 rounded-full flex items-center justify-center font-bold text-lg shadow-lg border-2 border-white">
+                                50Y
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Right Column: Details & Experience Timeline -->
+                    <div class="lg:col-span-7 space-y-6">
+                        <div class="inline-block px-4 py-1.5 bg-brand-50 text-brand-900 font-bold text-sm rounded-lg border border-brand-300">
+                            <i class="fa-solid fa-award mr-1"></i> ติวเตอร์ระดับแนวหน้าของไทย
+                        </div>
+                        
+                        <h3 class="text-2xl sm:text-3xl font-bold text-brand-900">
+                            ประสบการณ์ติวยาวนานกว่า 50 ปี
+                        </h3>
+                        
+                        <p class="text-slate-600 leading-relaxed text-lg">
+                            ตลอดครึ่งทศวรรษของการเป็นผู้จุดประกายแห่งการเรียนรู้ <strong>"ครูพี่เตย"</strong> ได้อุทิศตนเพื่อช่วยขับดันและปลดล็อกขีดความสามารถของน้องๆ ทุกช่วงชั้น มุ่งเน้นการสอนด้วยใจ ติวแบบเข้าใจง่าย มีเทคนิคจับประเด็น และเฉลยข้อสอบอย่างทะลุปรุโปร่ง ช่วยส่งน้องๆ ทะยานสู่จุดสูงสุดของชีวิตการเรียนในระดับอุดมศึกษา สวมชุดครุยในมหาวิทยาลัยในฝันได้สำเร็จ
+                        </p>
+
+                        <!-- Highlights Grid -->
+                        <div class="grid grid-cols-1 sm:grid-cols-2 gap-4 pt-4">
+                            <!-- Bullet 1 -->
+                            <div class="flex items-start gap-3 p-4 bg-brand-50 rounded-2xl border-l-4 border-brand-900">
+                                <div class="p-2 bg-brand-900 text-white rounded-lg">
+                                    <i class="fa-solid fa-user-graduate"></i>
+                                </div>
+                                <div>
+                                    <h4 class="font-bold text-brand-900">ส่งเข้ามหาลัยในฝัน</h4>
+                                    <p class="text-sm text-slate-500">ผลักดันน้องๆ เข้า ม.ชั้นนำ ทั่วประเทศ</p>
+                                </div>
+                            </div>
+                            <!-- Bullet 2 -->
+                            <div class="flex items-start gap-3 p-4 bg-brand-50 rounded-2xl border-l-4 border-brand-900">
+                                <div class="p-2 bg-brand-900 text-white rounded-lg">
+                                    <i class="fa-solid fa-book-open"></i>
+                                </div>
+                                <div>
+                                    <h4 class="font-bold text-brand-900">เก็งข้อสอบแม่นยำ</h4>
+                                    <p class="text-sm text-slate-500">รวมสุดยอดข้อสอบและเฉลยตรงจุด</p>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Achievements / Awards List -->
+                        <div class="space-y-3 pt-4">
+                            <h4 class="text-lg font-bold text-brand-900">
+                                <i class="fa-solid fa-trophy mr-2 text-brand-700"></i>เกียรติประวัติและผลงานที่โดดเด่น:
+                            </h4>
+                            <ul class="space-y-2 text-slate-600">
+                                <li class="flex items-center gap-2">
+                                    <i class="fa-solid fa-circle-check text-brand-900 text-sm"></i>
+                                    <span>ผู้บุกเบิกหลักสูตรจับทางข้อสอบประยุกต์และข้อสอบทักษะยุคใหม่</span>
+                                </li>
+                                <li class="flex items-center gap-2">
+                                    <i class="fa-solid fa-circle-check text-brand-900 text-sm"></i>
+                                    <span>ที่ปรึกษาด้านการศึกษาและบอร์ดสตรีมมิ่งชั้นนำระดับประเทศ</span>
+                                </li>
+                                <li class="flex items-center gap-2">
+                                    <i class="fa-solid fa-circle-check text-brand-900 text-sm"></i>
+                                    <span>รางวัล "ติวเตอร์ผู้ทรงคุณค่าเพื่อเยาวชนไทย" ประจำปีล่าสุด</span>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+        </section>
+
+        <!-- Interactive Target Dream University Section -->
+        <section class="py-16 bg-brand-50 border-y-2 border-brand-900/10">
+            <div class="max-w-4xl mx-auto px-4 text-center">
+                <i class="fa-solid fa-compass text-5xl text-brand-900 mb-4 animate-spin" style="animation-duration: 10s;"></i>
+                <h3 class="text-2xl sm:text-3xl font-extrabold text-brand-900">
+                    อยากรู้ว่าคอร์สไหนเหมาะกับตัวคุณ?
+                </h3>
+                <p class="text-slate-600 mt-2">เลือกเป้าหมายคณะในฝันของคุณเพื่อหาคอร์สที่ใช่ที่สุด</p>
+                
+                <div class="mt-8 grid grid-cols-2 sm:grid-cols-4 gap-3 max-w-2xl mx-auto">
+                    <button onclick="selectDream('med')" class="dream-btn p-3 bg-white border-2 border-slate-200 rounded-xl hover:border-brand-900 font-bold text-slate-700 hover:text-brand-900 transition-all text-sm sm:text-base">
+                        🩺 คณะสายวิทย์สุขภาพ
+                    </button>
+                    <button onclick="selectDream('eng')" class="dream-btn p-3 bg-white border-2 border-slate-200 rounded-xl hover:border-brand-900 font-bold text-slate-700 hover:text-brand-900 transition-all text-sm sm:text-base">
+                        ⚙️ วิศวกรรม & เทคฯ
+                    </button>
+                    <button onclick="selectDream('arts')" class="dream-btn p-3 bg-white border-2 border-slate-200 rounded-xl hover:border-brand-900 font-bold text-slate-700 hover:text-brand-900 transition-all text-sm sm:text-base">
+                        🎨 ศิลปศาสตร์ / อักษรฯ
+                    </button>
+                    <button onclick="selectDream('cap')" class="dream-btn p-3 bg-white border-2 border-slate-200 rounded-xl hover:border-brand-900 font-bold text-slate-700 hover:text-brand-900 transition-all text-sm sm:text-base">
+                        🧑‍✈️ กัปตันการบิน
+                    </button>
+                </div>
+
+                <!-- Dynamic Message Box -->
+                <div id="dream-message-box" class="hidden mt-8 p-6 bg-white border-2 border-brand-900 rounded-2xl max-w-xl mx-auto shadow-md transition-all">
+                    <p id="dream-text" class="text-brand-900 font-semibold text-lg"></p>
+                    <p id="dream-sub" class="text-slate-500 text-sm mt-2"></p>
+                    <a id="dream-link" href="#courses" class="inline-block mt-4 text-sm font-bold bg-brand-900 text-white px-4 py-2 rounded-lg hover:bg-brand-700">
+                        จองคอร์สนี้เลย!
+                    </a>
+                </div>
+            </div>
+        </section>
+
+        <!-- Courses Recommended Section (Beautiful cards with blue frames/accent) -->
+        <section id="courses" class="py-24 bg-white scroll-mt-20">
+            <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+                <!-- Section Title -->
+                <div class="text-center max-w-3xl mx-auto mb-16">
+                    <h2 class="text-base text-brand-700 font-bold tracking-widest uppercase mb-2">Our Signature Courses</h2>
+                    <p class="text-3xl sm:text-4xl font-extrabold text-brand-900">
+                        คอร์สเรียนแนะนำโดย "ครูพี่เตย"
+                    </p>
+                    <p class="text-slate-500 mt-2">ยกระดับศักยภาพและการทำโจทย์ พิชิตคะแนนสู่เป้าหมาย</p>
+                    <div class="w-24 h-1.5 bg-brand-900 mx-auto mt-4 rounded-full"></div>
+                </div>
+
+                <!-- Course Cards Grid -->
+                <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 items-stretch">
+                    
+                    <!-- Card 1: คอร์สพี่เตยพาติว -->
+                    <div class="flex flex-col bg-white border-2 border-brand-900 rounded-3xl overflow-hidden hover:shadow-2xl hover:-translate-y-2 transition-all duration-300">
+                        <!-- Card Header Pattern -->
+                        <div class="relative bg-brand-900 text-white p-6 pb-8 text-center">
+                            <span class="absolute top-4 right-4 bg-cyan-400 text-brand-950 font-extrabold text-xs px-2.5 py-1 rounded-full uppercase tracking-wider">
+                                คอร์สยอดฮิต
+                            </span>
+                            <i class="fa-solid fa-graduation-cap text-4xl text-cyan-300 mb-2"></i>
+                            <h3 class="text-xl font-bold tracking-wide">คอร์สพี่เตยพาติว</h3>
+                            <p class="text-cyan-100/80 text-xs mt-1">สรุปหัวใจหลักพร้อมโจทย์เข้มข้น</p>
+                        </div>
+                        
+                        <!-- Card Content -->
+                        <div class="flex-grow p-6 flex flex-col justify-between">
+                            <div class="space-y-4">
+                                <!-- Price Tag -->
+                                <div class="text-center -mt-10 mb-4">
+                                    <div class="inline-block bg-white text-brand-900 px-6 py-2.5 rounded-2xl shadow-md border-2 border-brand-900 font-extrabold text-2xl tracking-tight">
+                                        ฿3,333
+                                    </div>
+                                </div>
+                                <p class="text-slate-600 text-center text-sm">
+                                    คอร์สสรุปเนื้อหากลุ่มวิชาหลักแบบกระชับ รวดเร็ว เหมาะสำหรับผู้ที่มีเวลาน้อย แต่อยากโกยคะแนนได้อย่างรวดเร็วและแม่นยำ
+                                </p>
+                                
+                                <hr class="border-dashed border-brand-200">
+                                
+                                <!-- Course Features -->
+                                <ul class="space-y-2.5 text-sm text-slate-600">
+                                    <li class="flex items-center gap-2">
+                                        <i class="fa-solid fa-circle-play text-brand-900"></i>
+                                        <span>ชั่วโมงเรียนกว่า 45 ชั่วโมงเต็ม</span>
+                                    </li>
+                                    <li class="flex items-center gap-2">
+                                        <i class="fa-solid fa-circle-play text-brand-900"></i>
+                                        <span>รวมเทคนิคคิดลัดฉบับครูพี่เตย</span>
+                                    </li>
+                                    <li class="flex items-center gap-2">
+                                        <i class="fa-solid fa-circle-play text-brand-900"></i>
+                                        <span>แถมฟรีหนังสือเรียนจัดส่งถึงบ้าน</span>
+                                    </li>
+                                </ul>
+                            </div>
+
+                            <button onclick="openModal('คอร์สพี่เตยพาติว', 3333)" class="mt-8 w-full bg-brand-900 hover:bg-white text-white hover:text-brand-900 border-2 border-brand-900 py-3.5 rounded-xl font-bold text-center tracking-wide transition-colors shadow-md">
+                                สมัครเรียนคอร์สนี้
+                            </button>
+                        </div>
+                    </div>
+
+                    <!-- Card 2: คอร์สติวการเป็นกัปตันใบเตยnumber3 -->
+                    <div class="flex flex-col bg-white border-2 border-brand-950 rounded-3xl overflow-hidden hover:shadow-2xl hover:-translate-y-2 transition-all duration-300 ring-4 ring-brand-100">
+                        <!-- Card Header Pattern -->
+                        <div class="relative bg-brand-950 text-white p-6 pb-8 text-center">
+                            <span class="absolute top-4 right-4 bg-yellow-400 text-brand-950 font-extrabold text-xs px-2.5 py-1 rounded-full uppercase tracking-wider">
+                                แนะนำพิเศษ
+                            </span>
+                            <i class="fa-solid fa-plane-departure text-4xl text-yellow-400 mb-2"></i>
+                            <h3 class="text-xl font-bold tracking-wide">คอร์สติวการเป็นกัปตันใบเตย number3</h3>
+                            <p class="text-yellow-100/80 text-xs mt-1">คัดเน้นเพื่อการเป็นผู้นำตัวจริง</p>
+                        </div>
+                        
+                        <!-- Card Content -->
+                        <div class="flex-grow p-6 flex flex-col justify-between">
+                            <div class="space-y-4">
+                                <!-- Price Tag -->
+                                <div class="text-center -mt-10 mb-4">
+                                    <div class="inline-block bg-white text-brand-950 px-6 py-2.5 rounded-2xl shadow-md border-2 border-brand-955 font-extrabold text-2xl tracking-tight">
+                                        ฿9,999
+                                    </div>
+                                </div>
+                                <p class="text-slate-600 text-center text-sm">
+                                    คอร์สเจาะลึกเฉพาะทางเพื่อพัฒนากระบวนการคิดวิเคราะห์ ความเป็นกัปตันผู้นำทักษะการแก้โจทย์สอบระดับชาติที่ไม่เหมือนใคร
+                                </p>
+                                
+                                <hr class="border-dashed border-brand-200">
+                                
+                                <!-- Course Features -->
+                                <ul class="space-y-2.5 text-sm text-slate-600">
+                                    <li class="flex items-center gap-2">
+                                        <i class="fa-solid fa-circle-play text-brand-950"></i>
+                                        <span>ชั่วโมงเรียน 80 ชั่วโมงเน้นประยุกต์</span>
+                                    </li>
+                                    <li class="flex items-center gap-2">
+                                        <i class="fa-solid fa-circle-play text-brand-950"></i>
+                                        <span>เฉลยแนวข้อสอบกัปตันย้อนหลัง 5 ปี</span>
+                                    </li>
+                                    <li class="flex items-center gap-2">
+                                        <i class="fa-solid fa-circle-play text-brand-950"></i>
+                                        <span>แถมฟรีเซ็ตสมุดบันทึกกัปตันใบเตย Limited</span>
+                                    </li>
+                                </ul>
+                            </div>
+
+                            <button onclick="openModal('คอร์สติวการเป็นกัปตันใบเตย number3', 9999)" class="mt-8 w-full bg-brand-950 hover:bg-white text-white hover:text-brand-950 border-2 border-brand-955 py-3.5 rounded-xl font-bold text-center tracking-wide transition-colors shadow-md">
+                                สมัครเรียนคอร์สนี้
+                            </button>
+                        </div>
+                    </div>
+
+                    <!-- Card 3: คอร์สentranceรวมคอร์สชูโรงพี่เตยdek70 -->
+                    <div class="flex flex-col bg-white border-2 border-brand-900 rounded-3xl overflow-hidden hover:shadow-2xl hover:-translate-y-2 transition-all duration-300 lg:col-span-1 md:col-span-2">
+                        <!-- Card Header Pattern -->
+                        <div class="relative bg-gradient-to-r from-brand-900 to-brand-950 text-white p-6 pb-8 text-center">
+                            <span class="absolute top-4 right-4 bg-cyan-400 text-brand-950 font-extrabold text-xs px-2.5 py-1 rounded-full uppercase tracking-wider">
+                                สุดยอดความคุ้มค่า
+                            </span>
+                            <i class="fa-solid fa-star text-4xl text-cyan-300 mb-2"></i>
+                            <h3 class="text-xl font-bold tracking-wide text-center">คอร์ส entrance รวมคอร์สชูโรงพี่เตย dek70</h3>
+                            <p class="text-cyan-100/80 text-xs mt-1">มหากาพย์คอร์สติวที่ดีที่สุดในยุคนี้</p>
+                        </div>
+                        
+                        <!-- Card Content -->
+                        <div class="flex-grow p-6 flex flex-col justify-between">
+                            <div class="space-y-4">
+                                <!-- Price Tag -->
+                                <div class="text-center -mt-10 mb-4">
+                                    <div class="inline-block bg-white text-brand-900 px-6 py-2.5 rounded-2xl shadow-md border-2 border-brand-900 font-extrabold text-2xl tracking-tight">
+                                        ฿676,767
+                                    </div>
+                                </div>
+                                <p class="text-slate-600 text-center text-sm">
+                                    ที่สุดของคอร์สตลอดชีพที่จะเตรียมพร้อมน้องๆ สู่สนาม Dek70 รวบรวมเทคนิคและทุกคอร์สชูโรงที่ครูพี่เตยกลั่นกรองจากประสบการณ์สอนกว่า 50 ปี
+                                </p>
+                                
+                                <hr class="border-dashed border-brand-200">
+                                
+                                <!-- Course Features -->
+                                <ul class="space-y-2.5 text-sm text-slate-600">
+                                    <li class="flex items-center gap-2">
+                                        <i class="fa-solid fa-circle-play text-brand-900"></i>
+                                        <span>สิทธิ์เข้าถึงเนื้อหาและอัปเดตใหม่ๆ ตลอดชีพ</span>
+                                    </li>
+                                    <li class="flex items-center gap-2">
+                                        <i class="fa-solid fa-circle-play text-brand-900"></i>
+                                        <span>ติวสดตอบคำถามตรงโดยครูพี่เตยตัวจริงทุกสัปดาห์</span>
+                                    </li>
+                                    <li class="flex items-center gap-2">
+                                        <i class="fa-solid fa-circle-play text-brand-900"></i>
+                                        <span>สิทธิประโยชน์ VIP และชุดแนวข้อสอบพรีเมียม</span>
+                                    </li>
+                                </ul>
+                            </div>
+
+                            <button onclick="openModal('คอร์ส entrance รวมคอร์สชูโรงพี่เตย dek70', 676767)" class="mt-8 w-full bg-brand-900 hover:bg-white text-white hover:text-brand-900 border-2 border-brand-900 py-3.5 rounded-xl font-bold text-center tracking-wide transition-colors shadow-md">
+                                สมัครเรียนระดับ VIP
+                            </button>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+        </section>
+
+        <!-- Student Testimonials (Success Stories) -->
+        <section id="testimonials" class="py-20 bg-brand-50 border-t border-brand-100">
+            <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+                <div class="text-center max-w-2xl mx-auto mb-12">
+                    <h3 class="text-3xl font-bold text-brand-900">เสียงตอบรับจากศิษย์เก่าในชุดครุยสีน้ำเงิน</h3>
+                    <p class="text-slate-500 mt-2">สิ่งที่น้องๆ และผู้ปกครองประทับใจจากการเรียนกับครูพี่เตย</p>
+                </div>
+
+                <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+                    <!-- Feedback Card 1 -->
+                    <div class="bg-white p-6 rounded-2xl border-2 border-brand-900/10 shadow-sm hover:shadow-md transition-shadow">
+                        <div class="flex items-center gap-1 text-yellow-400 mb-3">
+                            <i class="fa-solid fa-star"></i>
+                            <i class="fa-solid fa-star"></i>
+                            <i class="fa-solid fa-star"></i>
+                            <i class="fa-solid fa-star"></i>
+                            <i class="fa-solid fa-star"></i>
+                        </div>
+                        <p class="text-slate-600 italic text-sm mb-4">
+                            "ถ้าไม่ได้เรียนคอร์สพี่เตยพาติว หนูคงสอบไม่ติดคณะแพทย์แน่นอนค่ะ ครูพี่เตยช่วยสรุปสิ่งยากๆ ให้เป็นเรื่องที่เข้าใจได้ง่ายมาก รักพี่เตยสุดๆ ค่ะ!"
+                        </p>
+                        <div class="flex items-center gap-3">
+                            <div class="w-10 h-10 rounded-full bg-brand-200 flex items-center justify-center font-bold text-brand-900">
+                                N
+                            </div>
+                            <div>
+                                <h4 class="font-bold text-slate-800 text-sm">น้องเนย (สอบติดคณะแพทยศาสตร์ มหิดล)</h4>
+                                <p class="text-xs text-slate-400">ศิษย์เก่ารุ่น Dek67</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Feedback Card 2 -->
+                    <div class="bg-white p-6 rounded-2xl border-2 border-brand-900/10 shadow-sm hover:shadow-md transition-shadow">
+                        <div class="flex items-center gap-1 text-yellow-400 mb-3">
+                            <i class="fa-solid fa-star"></i>
+                            <i class="fa-solid fa-star"></i>
+                            <i class="fa-solid fa-star"></i>
+                            <i class="fa-solid fa-star"></i>
+                            <i class="fa-solid fa-star"></i>
+                        </div>
+                        <p class="text-slate-600 italic text-sm mb-4">
+                            "คอร์สกัปตันใบเตย number 3 ดีมากๆ ครับ สอนหลักการคิดเชิงวิทยาศาสตร์และการเป็นผู้นำ มีประโยชน์ทั้งตอนสอบเข้า และตอนเรียนต่อจริงๆ ครับคุ้มค่ามาก"
+                        </p>
+                        <div class="flex items-center gap-3">
+                            <div class="w-10 h-10 rounded-full bg-brand-200 flex items-center justify-center font-bold text-brand-900">
+                                B
+                            </div>
+                            <div>
+                                <h4 class="font-bold text-slate-800 text-sm">น้องบีม (วิศวกรรมการบินและอวกาศ)</h4>
+                                <p class="text-xs text-slate-400">ศิษย์เก่ารุ่น Dek68</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Feedback Card 3 -->
+                    <div class="bg-white p-6 rounded-2xl border-2 border-brand-900/10 shadow-sm hover:shadow-md transition-shadow">
+                        <div class="flex items-center gap-1 text-yellow-400 mb-3">
+                            <i class="fa-solid fa-star"></i>
+                            <i class="fa-solid fa-star"></i>
+                            <i class="fa-solid fa-star"></i>
+                            <i class="fa-solid fa-star"></i>
+                            <i class="fa-solid fa-star"></i>
+                        </div>
+                        <p class="text-slate-600 italic text-sm mb-4">
+                            "สมคำร่ำลือ คอร์ส entrance ชูโรง Dek70 รวบยอดดีมาก ประสบการณ์สอน 50 ปีของครูพี่เตยทำให้เนื้อหาตรงจุดจริงๆ ซื้อคอร์สนี้แล้วชีวิตเปลี่ยน มั่นใจ 100%"
+                        </p>
+                        <div class="flex items-center gap-3">
+                            <div class="w-10 h-10 rounded-full bg-brand-200 flex items-center justify-center font-bold text-brand-900">
+                                F
+                            </div>
+                            <div>
+                                <h4 class="font-bold text-slate-800 text-sm">น้องเฟิร์น (คณะอักษรศาสตร์ จุฬาฯ)</h4>
+                                <p class="text-xs text-slate-400">ศิษย์เก่ารุ่น Dek69</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- Contact Us & Footer (White Elements, Solid Deep Blue Theme) -->
+    <footer id="contact" class="bg-brand-950 text-white pt-20 pb-8 border-t-4 border-brand-800">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="grid grid-cols-1 lg:grid-cols-12 gap-12 pb-16 border-b border-white/10">
+                
+                <!-- Left Column: Branding Description -->
+                <div class="lg:col-span-5 space-y-6">
+                    <div class="flex items-center gap-3">
+                        <div class="bg-white text-brand-950 p-2.5 rounded-xl">
+                            <i class="fa-solid fa-graduation-cap text-xl"></i>
+                        </div>
+                        <span class="text-2xl font-black tracking-wider text-white">toeytoeystudygram</span>
+                    </div>
+                    <p class="text-slate-300 leading-relaxed text-sm sm:text-base">
+                        มุ่งเน้นเตรียมความพร้อมเพื่อให้น้องๆ ประสบความสำเร็จสูงสุดในการสอบเข้ามหาวิทยาลัยชั้นนำในฝัน ส่งตรงด้วยหัวใจรักและประสบการณ์เก๋าเกมตลอด 50 ปีโดยครูพี่เตย
+                    </p>
+                    <p class="text-cyan-400 font-bold">#ก้าวแรกสู่มหาวิทยาลัยในฝันกับพี่เตย</p>
+                </div>
+
+                <!-- Center Column: Direct Links -->
+                <div class="lg:col-span-3 space-y-4">
+                    <h4 class="text-lg font-bold text-white border-b border-white/20 pb-2">เมนูนำทาง</h4>
+                    <ul class="space-y-2 text-sm text-slate-300">
+                        <li><a href="#" class="hover:text-white transition-colors">หน้าแรก</a></li>
+                        <li><a href="#biography" class="hover:text-white transition-colors">ประวัติการสอน</a></li>
+                        <li><a href="#courses" class="hover:text-white transition-colors">คอร์สเรียนแนะนำ</a></li>
+                        <li><a href="#testimonials" class="hover:text-white transition-colors">ความเห็นนักเรียน</a></li>
+                    </ul>
+                </div>
+
+                <!-- Right Column: Contact Us Channels (Highlighted details) -->
+                <div class="lg:col-span-4 space-y-6">
+                    <h4 class="text-lg font-bold text-white border-b border-white/20 pb-2">ช่องทางการติดต่อเรา (Contact Us)</h4>
+                    <p class="text-slate-300 text-sm">สอบถามข้อมูลเพิ่มเติม แอดไลน์คุยกับทีมผู้ดูแลหลักของพี่เตยได้โดยตรง ตลอด 24 ชั่วโมง</p>
+                    
+                    <div class="space-y-4">
+                        <!-- LINE Contact Item -->
+                        <a href="https://line.me" target="_blank" class="flex items-center gap-4 p-3 bg-emerald-600/10 hover:bg-emerald-600/20 border border-emerald-500/20 rounded-2xl transition-all group">
+                            <div class="w-12 h-12 rounded-xl bg-emerald-500 flex items-center justify-center text-white text-2xl shadow-md">
+                                <i class="fa-brands fa-line"></i>
+                            </div>
+                            <div>
+                                <p class="text-xs text-emerald-400 font-bold uppercase tracking-wider">Line ID</p>
+                                <p class="text-base sm:text-lg font-bold group-hover:text-emerald-300 transition-colors">@toeytoeystudygram</p>
+                            </div>
+                        </a>
+
+                        <!-- Instagram Contact Item -->
+                        <a href="https://instagram.com" target="_blank" class="flex items-center gap-4 p-3 bg-pink-600/10 hover:bg-pink-600/20 border border-pink-500/20 rounded-2xl transition-all group">
+                            <div class="w-12 h-12 rounded-xl bg-gradient-to-tr from-yellow-500 to-pink-500 flex items-center justify-center text-white text-2xl shadow-md">
+                                <i class="fa-brands fa-instagram"></i>
+                            </div>
+                            <div>
+                                <p class="text-xs text-pink-400 font-bold uppercase tracking-wider">Instagram</p>
+                                <p class="text-base sm:text-lg font-bold group-hover:text-pink-300 transition-colors">@toeytoeystudygram</p>
+                            </div>
+                        </a>
+                    </div>
+                </div>
+
+            </div>
+
+            <!-- Footer Bottom Copyright Section -->
+            <div class="pt-8 text-center text-xs sm:text-sm text-slate-400 flex flex-col sm:flex-row justify-between items-center gap-4">
+                <p>&copy; 2026 toeytoeystudygram. All Rights Reserved. สงวนลิขสิทธิ์หลักสูตรและการสอน</p>
+                <div class="flex gap-4">
+                    <a href="#" class="hover:underline">นโยบายความเป็นส่วนตัว</a>
+                    <span>•</span>
+                    <a href="#" class="hover:underline">ข้อตกลงและเงื่อนไขการใช้งาน</a>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Custom Elegant Registration Modal (No standard alerts) -->
+    <div id="enrollment-modal" class="fixed inset-0 z-50 overflow-y-auto hidden" aria-labelledby="modal-title" role="dialog" aria-modal="true">
+        <!-- Backdrop -->
+        <div class="flex items-end justify-center min-h-screen pt-4 px-4 pb-20 text-center sm:block sm:p-0">
+            <div onclick="closeModal()" class="fixed inset-0 bg-slate-900/80 transition-opacity" aria-hidden="true"></div>
+
+            <!-- Modal Panel wrapper -->
+            <span class="hidden sm:inline-block sm:align-middle sm:h-screen" aria-hidden="true">&#8203;</span>
+
+            <div class="inline-block align-bottom bg-white rounded-3xl text-left overflow-hidden shadow-2xl transform transition-all sm:my-8 sm:align-middle sm:max-w-lg sm:w-full border-4 border-brand-900">
+                <!-- Modal Header -->
+                <div class="bg-brand-900 px-6 py-4 text-white flex justify-between items-center">
+                    <h3 class="text-xl font-bold flex items-center gap-2">
+                        <i class="fa-solid fa-file-signature text-cyan-300"></i> สมัครเรียนหลักสูตรพรีเมียม
+                    </h3>
+                    <button onclick="closeModal()" class="text-white/80 hover:text-white text-xl">
+                        <i class="fa-solid fa-xmark"></i>
+                    </button>
+                </div>
+
+                <!-- Modal Body Form -->
+                <div class="p-6 space-y-4">
+                    <div id="modal-intro-info" class="p-4 bg-brand-50 rounded-2xl border border-brand-200">
+                        <p class="text-xs text-brand-900 font-bold uppercase tracking-wide">คอร์สที่กำลังสมัครเรียน:</p>
+                        <p id="modal-course-title" class="text-lg font-bold text-slate-800 mt-0.5">-</p>
+                        <p class="text-sm font-semibold text-brand-900 mt-1">ราคาค่าเล่าเรียน: <span id="modal-course-price" class="text-base font-extrabold">-</span> บาท</p>
+                    </div>
+
+                    <!-- Enrollment Input Fields -->
+                    <form id="enrollment-form" class="space-y-4" onsubmit="submitForm(event)">
+                        <div>
+                            <label class="block text-sm font-bold text-slate-700 mb-1">ชื่อ-นามสกุล ของน้องๆ *</label>
+                            <input type="text" id="student-name" required placeholder="เช่น น้องใจดี เรียนเก่ง" class="w-full px-4 py-2.5 rounded-xl border-2 border-slate-200 focus:border-brand-900 focus:outline-none transition-colors text-sm">
+                        </div>
+                        <div>
+                            <label class="block text-sm font-bold text-slate-700 mb-1">เบอร์โทรศัพท์ผู้เรียนหรือผู้ปกครอง *</label>
+                            <input type="tel" id="student-phone" required placeholder="เช่น 098-765-4321" class="w-full px-4 py-2.5 rounded-xl border-2 border-slate-200 focus:border-brand-900 focus:outline-none transition-colors text-sm">
+                        </div>
+                        <div>
+                            <label class="block text-sm font-bold text-slate-700 mb-1">ระดับชั้นเรียน *</label>
+                            <select id="student-grade" required class="w-full px-4 py-2.5 rounded-xl border-2 border-slate-200 focus:border-brand-900 focus:outline-none transition-colors text-sm bg-white">
+                                <option value="ม.6 / Dek70">ม.6 / Dek70</option>
+                                <option value="ม.5">ม.5</option>
+                                <option value="ม.4">ม.4</option>
+                                <option value="ม.ต้น / อื่นๆ">ม.ต้น / อื่นๆ</option>
+                            </select>
+                        </div>
+
+                        <!-- Mock Payment Instructions with Simulated QR -->
+                        <div class="pt-2">
+                            <p class="text-xs font-bold text-brand-900 uppercase tracking-wider mb-2">ช่องทางชำระเงินจำลอง (Mock QR Code)</p>
+                            <div class="p-4 bg-slate-50 rounded-2xl flex flex-col items-center justify-center border border-slate-200 text-center">
+                                <img id="mock-qr" src="https://placehold.co/180x180/1e2d86/ffffff?text=toeytoeystudygram+Pay" class="w-32 h-32 rounded-lg shadow-sm border" alt="QR Code Payment">
+                                <p class="text-[11px] text-slate-400 mt-2">สแกนจ่ายเงินจำลองจำนวนเต็มตามคอร์สเรียน เพื่อตรวจสอบความถูกต้อง</p>
+                            </div>
+                        </div>
+
+                        <!-- Submit Buttons -->
+                        <div class="flex gap-3 pt-2">
+                            <button type="button" onclick="closeModal()" class="w-1/2 border-2 border-slate-200 text-slate-500 hover:bg-slate-50 py-3 rounded-xl font-bold transition-colors">
+                                ยกเลิก
+                            </button>
+                            <button type="submit" class="w-1/2 bg-brand-900 hover:bg-brand-700 text-white py-3 rounded-xl font-bold shadow-md transition-colors flex items-center justify-center gap-2">
+                                <span>ยืนยันการสมัคร</span>
+                                <i class="fa-solid fa-circle-check"></i>
+                            </button>
+                        </div>
+                    </form>
+
+                    <!-- Custom Success Response State (Hidden by default) -->
+                    <div id="modal-success-state" class="hidden text-center py-8 space-y-4">
+                        <div class="w-16 h-16 bg-emerald-100 text-emerald-600 rounded-full flex items-center justify-center mx-auto text-3xl animate-bounce">
+                            <i class="fa-solid fa-circle-check"></i>
+                        </div>
+                        <h4 class="text-xl font-bold text-slate-800">สมัครเรียนเสร็จสมบูรณ์เรียบร้อยแล้วค่ะ!</h4>
+                        <p class="text-sm text-slate-500 max-w-sm mx-auto">
+                            ข้อมูลการสมัครของ <strong id="show-success-name">น้อง</strong> ได้ถูกบันทึกเข้าระบบเรียบร้อย ทีมผู้ดูแลพี่เตยจะรีบโทรหาเพื่อยืนยันทางเบอร์โทรศัพท์ที่แจ้งไว้ทันทีค่ะ!
+                        </p>
+                        <button onclick="closeModal()" class="mt-4 px-6 py-2 bg-brand-900 text-white rounded-xl font-bold hover:bg-brand-700 transition-colors">
+                            ปิดหน้าต่าง
+                        </button>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Custom Core Scripts -->
+    <script>
+        // Hamburger Menu Toggle
+        const mobileMenuBtn = document.getElementById('mobile-menu-btn');
+        const mobileMenu = document.getElementById('mobile-menu');
+        const menuIcon = document.getElementById('menu-icon');
+
+        mobileMenuBtn.addEventListener('click', () => {
+            const isHidden = mobileMenu.classList.contains('hidden');
+            if (isHidden) {
+                mobileMenu.classList.remove('hidden');
+                menuIcon.className = "fa-solid fa-xmark text-2xl";
+            } else {
+                mobileMenu.classList.add('hidden');
+                menuIcon.className = "fa-solid fa-bars text-2xl";
+            }
+        });
+
+        // Hide drawer upon clicking a menu item
+        const links = mobileMenu.querySelectorAll('a');
+        links.forEach(link => {
+            link.addEventListener('click', () => {
+                mobileMenu.classList.add('hidden');
+                menuIcon.className = "fa-solid fa-bars text-2xl";
+            });
+        });
+
+        // Target University Match Widget
+        function selectDream(type) {
+            const msgBox = document.getElementById('dream-message-box');
+            const dreamText = document.getElementById('dream-text');
+            const dreamSub = document.getElementById('dream-sub');
+            const dreamLink = document.getElementById('dream-link');
+            
+            // Highlight chosen button
+            const buttons = document.querySelectorAll('.dream-btn');
+            buttons.forEach(btn => {
+                btn.classList.remove('border-brand-900', 'bg-brand-50', 'text-brand-900');
+                btn.classList.add('border-slate-200', 'bg-white', 'text-slate-700');
+            });
+            
+            // Add style to caller
+            event.target.classList.remove('border-slate-200', 'bg-white', 'text-slate-700');
+            event.target.classList.add('border-brand-900', 'bg-brand-50', 'text-brand-900');
+
+            msgBox.classList.remove('hidden');
+
+            if (type === 'med') {
+                dreamText.textContent = "🏥 แนะนำ: คอร์สพี่เตยพาติว + คอร์ส Entrance รวม Dek70";
+                dreamSub.textContent = "วิชาสายวิทยาศาสตร์สุขภาพต้องอาศัยทักษะความแม่นยำและการทำโจทย์เข้มข้น คอร์สชูโรงของเราจะดันคะแนนเฉลี่ยของคุณให้ทะยานขึ้นสู่ท็อปประเทศ!";
+            } else if (type === 'eng') {
+                dreamText.textContent = "⚙️ แนะนำ: คอร์สติวการเป็นกัปตันใบเตย number3";
+                dreamSub.textContent = "วิศวกรรมต้องเก่งแก้โจทย์ทักษะเชิงลึก ทักษะการคิดคำนวณแบบกัปตันคือสิ่งที่จำเป็นที่สุด มาฝึกแก้คำถามเชิงตรรกะแบบรวดเร็วกับครูพี่เตย!";
+            } else if (type === 'arts') {
+                dreamText.textContent = "🎨 แนะนำ: คอร์สพี่เตยพาติว สรุปเข้มข้น";
+                dreamSub.textContent = "คณะสายศิลป์ต้องการคะแนนสัดส่วนความถนัดทั่วไปและการวิเคราะห์ข้อความอย่างรวดเร็ว คอร์สสรุปแกนหลักช่วยเสริมจุดนี้แบบตรงประเด็นที่สุด";
+            } else if (type === 'cap') {
+                dreamText.textContent = "🧑‍✈️ แนะนำ: คอร์สติวการเป็นกัปตันใบเตย number 3 (เน้นย้ำพิเศษ)";
+                dreamSub.textContent = "ก้าวขึ้นสู่กัปตันใบเตยอันดับ 3 เต็มรูปแบบ เรียนรู้ทักษะพิเศษ การวิเคราะห์แก้ปัญหาเฉพาะหน้าแบบฉับไวสำหรับกวดวิชาผู้คุมสอบตัวจริง";
+            }
+        }
+
+        // Enrollment Modal Handling
+        const modal = document.getElementById('enrollment-modal');
+        const courseTitleField = document.getElementById('modal-course-title');
+        const coursePriceField = document.getElementById('modal-course-price');
+        const mockQrImage = document.getElementById('mock-qr');
+        
+        const enrollForm = document.getElementById('enrollment-form');
+        const successState = document.getElementById('modal-success-state');
+        const showSuccessName = document.getElementById('show-success-name');
+        const introInfo = document.getElementById('modal-intro-info');
+
+        function openModal(courseName, price) {
+            // Set dynamic details
+            courseTitleField.textContent = courseName;
+            coursePriceField.textContent = Number(price).toLocaleString('th-TH');
+            
+            // Dynamic mock QR generation
+            mockQrImage.src = `https://placehold.co/180x180/1e2d86/ffffff?text=${encodeURIComponent(courseName)}+%E0%B8%BF${price}`;
+
+            // Reset view state
+            enrollForm.classList.remove('hidden');
+            successState.classList.add('hidden');
+            introInfo.classList.remove('hidden');
+            
+            // Show modal
+            modal.classList.remove('hidden');
+            document.body.style.overflow = 'hidden'; // Lock scrolling
+        }
+
+        function closeModal() {
+            modal.classList.add('hidden');
+            document.body.style.overflow = 'auto'; // Unlock scrolling
+        }
+
+        function submitForm(event) {
+            event.preventDefault();
+            const sName = document.getElementById('student-name').value;
+            
+            // Toggle form view states instead of using window alert
+            showSuccessName.textContent = sName;
+            enrollForm.classList.add('hidden');
+            introInfo.classList.add('hidden');
+            successState.classList.remove('hidden');
+            
+            // Reset input values
+            document.getElementById('student-name').value = '';
+            document.getElementById('student-phone').value = '';
+        }
+    </script>
+</body>
+</html>
